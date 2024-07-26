@@ -29,9 +29,9 @@ Operations are performed in parallel on several databases per instance.
 7. **Restore FULL Recovery Model (if it was originally)**
 8. **Enable Backup Jobs**
 
-## Execution
+## Recommended Usage
 
-- Once a week
+It is recommended to run the system once a week using the Windows Task Scheduler.
 
 ## Operations Performed on Databases
 
