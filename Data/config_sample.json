@@ -1,0 +1,61 @@
+{
+    "config": {
+        "dry_run": 0,
+        "timeout_alteridx_min": 30,
+        "timeout_updstats_min": 120
+    },
+    "instances": {
+        "sqlserver2016": {
+            "enabled": 1,
+            "max_jobs_per_ins": 5,
+            "max_db_size_GB": 99999,
+            "min_page_count": 100,
+            "min_frag_pct_reorganize": 5,
+            "min_frag_pct_rebuild": 30,
+            "offline_rebuild": 1,
+            "backup_jobs": ["BACKUP.FULL","BACKUP.DIFF","BACKUP.TRN"],
+            "include": [],
+            "exclude": ["Database1","Database2"],
+            "databases": {}
+        },
+        "sqlcluster\\instance1": {
+            "enabled": 1,
+            "max_jobs_per_ins": 5,
+            "max_db_size_GB": 99999,
+            "min_page_count": 100,
+            "min_frag_pct_reorganize": 5,
+            "min_frag_pct_rebuild": 30,
+            "offline_rebuild": 1,
+            "backup_jobs": ["BACKUP.Full","BACKUP.Diff","BACKUP.TLog"],
+            "include": [],
+            "exclude": ["crm","Wordpress"],
+            "databases": {}
+        },
+        "sqlcluster\\instance2": {
+            "enabled": 1,
+            "max_jobs_per_ins": 5,
+            "max_db_size_GB": 99999,
+            "min_page_count": 100,
+            "min_frag_pct_reorganize": 5,
+            "min_frag_pct_rebuild": 30,
+            "offline_rebuild": 1,
+            "backup_jobs": [],
+            "include": [],
+            "exclude": [],
+            "databases": {}
+        },
+        "sql2016,1520": {
+            "enabled": 1,
+            "max_jobs_per_ins": 5,
+            "max_db_size_GB": 99999,
+            "min_page_count": 100,
+            "min_frag_pct_reorganize": 5,
+            "min_frag_pct_rebuild": 30,
+            "offline_rebuild": 0,
+            "backup_jobs": [],
+            "include": [],
+            "exclude": [],
+            "databases": {}
+        }
+    }
+}
