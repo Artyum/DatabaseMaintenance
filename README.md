@@ -1,5 +1,7 @@
 # Reindexing of MSSQL databases
 
+This PowerShell script is designed for managing and performing database reindexing tasks on SQL Server instances.
+
 Maintenance of databases is performed based on the documentation:
 - [Optimize index maintenance to improve query performance and reduce resource consumption](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver16)
 - [ALTER INDEX (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver16)
