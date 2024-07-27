@@ -7,7 +7,7 @@ Maintenance of databases is performed based on the documentation:
 - [ALTER INDEX (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver16)
 - [sys.databases](https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=sql-server-ver16)
 
-In the "images" folder, you can find sample charts showing index fragmentation on production databases, where reindexing is scheduled to run weekly.
+In the "Grafana" folder, you can find sample charts showing index fragmentation on production databases, where reindexing is scheduled to run weekly.
 
 ## Microsoft Best Practices
 
