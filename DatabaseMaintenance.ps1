@@ -63,7 +63,6 @@ if ($dryRun) {
 }
 
 Log -file $mainLog -msg $m
-SMSSender-Send -numTab $numTab -msg $m
 
 # Prepare instances
 foreach ($ins in $instances) {
@@ -80,13 +79,12 @@ foreach ($ins in $instances) {
     if ($bckJobs -and $dryRun -eq 0) {
         $m = "Disable backup jobs for $ins"
         Log -file $mainLog -msg $m
-        SMSSender-Send -numTab $numTab -msg $m
 
         $ret = Set-SQLJobs-State -ins $ins -jobs $bckJobs -state 0
         if ($ret -eq $false) {
             # If there's a problem disabling, the instance is not processed
             $instances = $instances | ?{$_ -ne $ins}
-            SMSSender-Send -numTab $numTab -msg 'Set-SQLJobs-State Failed'
+            Log -file $mainLog -msg 'Set-SQLJobs-State Failed'
         }
     }
 }
@@ -437,11 +435,10 @@ while (-not $finish) {
 
                 $m = "Enable backup jobs for $ins"
                 Log -file $mainLog -msg $m
-                SMSSender-Send -numTab $numTab -msg $m
-
+                
                 if ($dryRun -eq 0) {
                     $ret = Set-SQLJobs-State -ins $ins -jobs $params.backup_jobs -state 1
-                    if ($ret -eq $false) { SMSSender-Send -numTab $numTab -msg 'Set-SQLJobs-State Failed' }
+                    if ($ret -eq $false) { Log -file $mainLog -msg 'Set-SQLJobs-State Failed' }
                 }
             }
         }
@@ -450,7 +447,7 @@ while (-not $finish) {
     # Check the completion of all tasks -> if the minimum status of all tasks is >= 2
     $minStatus = ($dbList.Values.Status | measure -Minimum).Minimum
     if ($minStatus -ge 2) {
-        SMSSender-Send -numTab $numTab -msg 'Database Maintenance FINISH'
+        Log -file $mainLog -msg 'Database Maintenance FINISH'
         $finish = $true
     }
 
